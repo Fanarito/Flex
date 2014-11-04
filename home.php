@@ -17,6 +17,7 @@
             document.createElement('video');document.createElement('audio');document.createElement('track');
             videojs.options.flash.swf = "video-js/video.swf"
         </script>
+        <title>Home</title>
     </head>
     
     <body>

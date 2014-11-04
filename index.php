@@ -2,13 +2,14 @@
 <html>
     <?php
         session_start();
-        if(!empty($_SESSION['login_user']))
+        if(isset($_SESSION['login_user']) && !empty($_SESSION['login_user']))
         {
             header('Location: home.php');
         }
     ?>
     <head>
         <meta charset="utf-8">
+        <title>Login</title>
         <link href="css/pass.css" rel="stylesheet">
     </head>
     
