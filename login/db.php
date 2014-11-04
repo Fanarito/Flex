@@ -1,9 +1,11 @@
 <?php
+    try{
+        $user = "root";
+        $pass = "";
 
-$dbname = "1907973179_GRU";
-$server = "tsuts.tskoli.is";
-$user = "1907973179";
-$pass = "W6FGT4NVluUG4TN";
-
-$db = new PDO('pgsql:dbname=$dbname;host=$server;user=$user;password=$pass');
+        $conn = new PDO('mysql:host=localhost;dbname=GRU',$user,$pass);
+    }
+    catch(PDOException $e){
+        echo 'Error: ' . $e->GetMessage();
+    }
 ?>

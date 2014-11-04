@@ -28,6 +28,7 @@
         <script>
             $(document).ready(function()
             {
+                $('#username').focus();
                 $('#login').click(function()
                 {
                     var username=$("#username").val();
@@ -37,7 +38,7 @@
                     {
                         $.ajax({
                             type: "POST",
-                            url: "ajaxLogin.php",
+                            url: "login/ajaxLogin.php",
                             data: dataString,
                             cache: false,
                             beforeSend: function(){ $("#login").val('Connecting...');},

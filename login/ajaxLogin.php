@@ -1,24 +1,28 @@
 <?php
     session_start();
     require("db.php");
-    
-    if(isset($_POST['user']) && isset($_POST['pass']))
+
+    $count = 0;
+    $row;
+
+    if(isset($_POST['username']) && isset($_POST['password']))
     {
         $username = $_POST['user'];
         $password = $_POST['pass'];
         $sql= "SELECT id FROM user WHERE notandanafn=:username AND password=:password";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':username', $username, PDO::PARAM_STRING);
-        $stmt->bindParam(':password', $password, PDO::PARAM_STRING);
-        $stmt->execute();
-        $count = $stmt->rowCount();
+        $STH = $conn->prepare($sql);
+        $STH->setFetchMode(PDO::FETCH_ASSOC);
+        $STH->bindParam(':username', $username);
+        $STH->bindParam(':password', $password);
+        $STH->execute();
+        $count = $STH->rowCount();
+        while($thing = $STH->fetch()) {
+            $row = $thing;
+        }
     }
 
     if($count==1)
     {
-        $_SESSION['login_user']=$row['id']; //Storing user session value.
-        echo $row['id'];
-    }
-
+        $_SESSION['login_user']=$row['id'];
     }
 ?>
