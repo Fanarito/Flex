@@ -18,8 +18,8 @@
             videojs.options.flash.swf = "video-js/video.swf"
         </script>
     </head>
-
+    
     <body>
-
+        
     </body>
 </html>

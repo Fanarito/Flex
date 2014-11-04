@@ -1,7 +1,7 @@
 <?php
     session_start();
     require("db.php");
-
+    
     if(isset($_POST['user']) && isset($_POST['pass']))
     {
         $username = $_POST['user'];
