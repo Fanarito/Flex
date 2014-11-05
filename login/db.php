@@ -1,11 +1,11 @@
 <?php
     try{
-        $user = "root";
-        $pass = "";
+        $user = "gru";
+        $pass = "scribblefusionhedonismpothead";
 
-        $conn = new PDO('mysql:host=localhost;dbname=GRU',$user,$pass);
+        $DBH = new PDO('pgsql:dbname=gru;host=localhost;port=5432;user=' .$user .';password=' . $pass);
     }
     catch(PDOException $e){
-        echo 'Error: ' . $e->GetMessage();
+        //echo 'Error: ' . $e->GetMessage();
     }
 ?>
