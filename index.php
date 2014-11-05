@@ -10,6 +10,7 @@
     <head>
         <meta charset="utf-8">
         <title>Login</title>
+        <link href="css/reset.css" rel="stylesheet">
         <link href="css/pass.css" rel="stylesheet">
     </head>
     
@@ -32,21 +33,23 @@
                 $('#username').focus();
                 $('#login').click(function()
                 {
-                    var username=$("#username").val();
-                    var password=$("#password").val();
-                    var dataString = 'username='+username+'&password='+password;
+                    var notandanafn=$("#username").val();
+                    var lykilord=$("#password").val();
+                    //window.confirm(user + " " + pass);
                     if($.trim(username).length>0 && $.trim(password).length>0)
                     {
                         $.ajax({
                             type: "POST",
                             url: "login/ajaxLogin.php",
-                            data: dataString,
+                            data: {user: notandanafn, pass: lykilord},
                             cache: false,
                             beforeSend: function(){ $("#login").val('Connecting...');},
                             success: function(data){
                                 if(data)
                                 {
-                                    $("body").load("home.php").hide().fadeIn(1500).delay(6000);
+                                    $("body").slideUp("slow", function(){
+                                    });
+                                    $("body").load("home.php").hide();
                                     //or
                                     window.location.href = "home.php";
                                 }
@@ -56,8 +59,10 @@
                                     //Shake animation effect.
                                     $('#loginWindow').jrumble();
                                     $('#loginWindow').trigger('startRumble');
-                                    $("#login").val('Login')
-                                    $("#error").html("<span class='error' style='color:#cc0000'>Error:</span> <p class='error'>Invalid username and password.</p>");
+                                    $("#login").val('Login');
+                                    $("#username").addClass('error');
+                                    $("#password").addClass('error');
+                                    //$("#error").html("<span class='error' style='color:#cc0000'>Error:</span> <p class='error'>Invalid username and password.</p>");
                                     demoTimeout = setTimeout(function(){$('#loginWindow').trigger('stopRumble');}, 500)
                                 }
                             }
@@ -65,7 +70,11 @@
                     }
                     return false;
                 });
-
+                
+                $( "input" ).keydown(function() {
+                    $("#username").removeClass('error');
+                    $("#password").removeClass('error');
+                });
             });
         </script>
     </body>
