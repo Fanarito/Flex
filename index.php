@@ -12,6 +12,7 @@
         <title>Login</title>
         <link href="css/reset.css" rel="stylesheet">
         <link href="css/pass.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     
     <body>
@@ -31,8 +32,8 @@
             $(document).ready(function()
             {
                 $('#username').focus();
-                $('#login').click(function()
-                {
+                
+                function login(){
                     var notandanafn=$("#username").val();
                     var lykilord=$("#password").val();
                     //window.confirm(user + " " + pass);
@@ -69,6 +70,17 @@
                         });
                     }
                     return false;
+                }
+                
+                $('#login').click(function()
+                {
+                    login();
+                });
+                
+                $('#password').keypress(function(e) {
+                    if(e.which == 13) {
+                        login();
+                    }
                 });
                 
                 $( "input" ).keydown(function() {
