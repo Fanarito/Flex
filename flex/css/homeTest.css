@@ -1,0 +1,296 @@
+*{
+	font-family: 'Titilium Web', sans-serif;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Quicksand', sans-serif;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background: url("background_texture.png") repeat scroll 0% 0% transparent;
+}
+
+.main{
+    color: #fff;
+}
+
+.menu {
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    position: fixed;
+    height: 100%;
+    background-color: #383838;
+    text-indent: 5px;
+    color: #ffffff;
+    left: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.menuItem {
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    padding: 5px;
+    margin: 0;
+}
+
+.menuItem:hover {
+    cursor: pointer;
+    background-color: #1291ef;
+}
+
+.menuHeading {
+    background-color: #1291ef;
+    margin: 0;
+    padding: 5px;
+}
+
+#menuHide{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    position: fixed;
+    background-color: rgba(96, 96, 96, 0.43);
+    color: #fff;
+    border: 0;
+    font-size: 200%;
+}
+
+#playerHide{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    position: fixed;
+    background-color: rgba(96, 96, 96, 0.43);
+    color: #fff;
+    border: 0;
+    font-size: 200%;
+    right: 0;
+    z-index: 10;
+}
+
+.player{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    position: fixed;
+    height: 100%;
+    background-color: #383838;
+    right: 0;
+    overflow: hidden;
+}
+
+.main{
+    /*margin-left: 8.3333%;*/
+}
+
+iframe{
+    border: 0;
+}
+
+.homeCard{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    float: left;
+    text-align: center;
+    color: #ffffff;
+}
+
+.homeCardHeading{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    background-color: #1291ef;
+}
+
+.homeCardHeading:hover{
+    cursor: pointer;
+    
+}
+
+.playerSelector{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    float: left;
+    text-align: center;
+    padding: 5px 0 5px 0;
+    margin-top: 0;
+    color: white;
+}
+
+.playerSelector:hover{
+    background-color: #1291ef;
+    cursor: pointer;
+}
+
+.selected{
+    background-color: #1291ef;
+}
+
+.options{
+    float: left;
+    background-color: #1291ef;
+}
+
+menu, ol, ul {
+    padding: 0px 0px 0px 0px;
+}
+
+.panel{
+    float: left;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    height: 150px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.scrollbar{
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.sideOptions{
+    float: left;
+}
+
+.playHeading{
+    float: left;
+    text-align: center;
+}
+
+.betweener{
+    /*border-bottom: 0.2px solid white;
+    margin-top: 10px;
+    margin-bottom: 10px;*/
+}
+
+.middleOption{
+    border-radius: 0;
+}
+
+.addToPlaylist{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.addToPlaylist:hover{
+    color: #fff;
+}
+
+.addToFavorites{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.addToFavorites:hover{
+    color: #ffce00;
+}
+
+.play{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.play:hover{
+    color: #00ff62;
+}
+
+.thumbnail{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.mainView{
+    margin-left: -4px;
+}
+
+.deleteFromPlaylist{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.deleteFromPlaylist:hover{
+    color: #f53131;
+}
+
+.vjs-track{
+    float: left;
+}
+
+.vjs-playlist ul li a{
+    padding: 15px;
+    display: block;
+    width: 83.3333% !important;
+    padding-right: 0;
+    padding-left: 0;
+    text-indent: 10px;
+}
+
+.information{
+    float: left;
+}
+
+.image{
+    float: left;
+    text-align: left;
+    max-width: 50%;
+}
+
+@media (min-width: 768px) {
+    #menuHide {
+        display: none;
+    }
+    
+    #playerHide {
+        display: none;
+    }
+}
