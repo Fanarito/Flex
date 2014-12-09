@@ -37,10 +37,9 @@ if(empty($_SESSION['login_user']))
                     {
                         $string ="";
                         $uid = $_SESSION['login_user'];
-                        $sql = "SELECT * FROM music
+                        $sql = "SELECT music.id, music.nafn, music.thumbnail, music.path FROM music
                                     JOIN useraccess ON useraccess.accessgroup = music.accessgroup
-                                    JOIN notendur ON notendur.id = useraccess.notendur_id
-                                LIMIT 10";
+                                    JOIN notendur ON notendur.id = useraccess.notendur_id";
                         $STH = $DBH->prepare($sql);
                         $STH->setFetchMode(PDO::FETCH_ASSOC);
                         $STH->execute();
@@ -56,7 +55,7 @@ if(empty($_SESSION['login_user']))
                     }
                 ?>]">
             </div>
-            <div class="search">Search: <input id="allMusic" ng-model="allMusic"><br></div>
+            <div class="search">Search: <input class="searchBox" id="allMusic" ng-model="allMusic"><br></div>
             <div class="scrollbar">
                 <ul class="pure-u-1">
                     <li ng-repeat="name in allMusics | filter:allMusic" class="pure-u-1 panel">
@@ -82,24 +81,6 @@ if(empty($_SESSION['login_user']))
         var windowWidth = $(window).width();
         
         function mediaButtons(){
-            $('.playVid').click(function(){
-                var video = $(this).data('video');
-                var vidId = $(this).data('playid');
-                var thumb = $(this).data('thumbnail');
-                var name = $(this).data('name');
-                //var thumb = $(this).data('thumbnail');
-                parent.setVideo(video.substring(0,video.length-4), name.substring(0,name.length-4),thumb);
-                
-                $.ajax({
-                    type: "POST",
-                    url: "watch.php",
-                    data: {videoID: vidId},
-                    cache: false,
-                    success: function(data){
-                    }
-                });
-            });
-            
             $('.addToMusicFavorites').click(function(){
                 var video = $(this).data('video');
                 var vidId = $(this).data('playid');
@@ -115,24 +96,13 @@ if(empty($_SESSION['login_user']))
                 });
             });
             
-            $('.addToVideoPlaylist').click(function(){
-                var video = $(this).data('video');
-                var name = $(this).data('name');
-                var videoId = $(this).data('playid');
-                //var thumb = $(this).data('thumbnail');
-                parent.addToVideoPlaylist(video.substring(0,video.length-4), name.substring(0,name.length-4), videoId);
-                parent.deleteFromPlaylist();
-
-                //parent.myPlayer.play();
-            });
-            
             $('.playMusic').click(function(){
                 var music = $(this).data('music');
                 var musicId = $(this).data('playid');
                 var thumb = $(this).data('thumbnail');
                 var name = $(this).data('name');
                 //var thumb = $(this).data('thumbnail');
-                parent.setMusic(music.substring(0,music.length-4), name.substring(0,name.length-4), thumb);
+                parent.setMusic(music.substring(0,music.length-4), name.substring(0,name.length-4), thumb, musicId);
                 
                 $.ajax({
                     type: "POST",
@@ -147,9 +117,10 @@ if(empty($_SESSION['login_user']))
             $('.addToMusicPlaylist').click(function(){
                 var music = $(this).data('music');
                 var name = $(this).data('name');
+                var thumb = $(this).data('thumbnail');
                 var musicId = $(this).data('playid');
                 //var thumb = $(this).data('thumbnail');
-                parent.addToMusicPlaylist(music.substring(0,music.length-4), name.substring(0,name.length-4), musicId);
+                parent.addToMusicPlaylist(music.substring(0,music.length-4), name.substring(0,name.length-4), musicId ,thumb);
                 parent.deleteFromPlaylist();
 
                 //parent.musicPlayer.play();
@@ -181,6 +152,11 @@ if(empty($_SESSION['login_user']))
                     });
                 });
             })(jQuery);
+            
+            $( ".searchbox" ).keypress(function() {
+                mediaButtons();
+                optionsResize();
+            });
         });
     </script>
 </body>

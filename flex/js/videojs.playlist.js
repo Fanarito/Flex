@@ -56,6 +56,9 @@
 
        //get new src
         var src=track.getAttribute('data-src');
+        //get new thumbnail
+        var thumb=track.getAttribute('data-thumbnail');
+        
         index=parseInt(track.getAttribute('data-index')) || index;
         //console.log('track select click src:'+src);
 
@@ -67,7 +70,7 @@
         else{
 
             if(player.el().firstChild.tagName=="AUDIO" || (typeof options.mediaType!='undefined' && options.mediaType=="audio") ){
-
+                player.poster(thumb);
               player.src([
                   { type: "audio/mp4", src:  src+".mp3" },
                   { type: "audio/webm", src: src+".webm" },
@@ -78,6 +81,7 @@
             }
             else{
             //console.log("video");
+                player.poster(thumb);
               player.src([                
                 { type: "video/mp4", src:  src+".mp4" },
                 { type: "video/webm", src: src+".webm" }

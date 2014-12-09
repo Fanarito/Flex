@@ -49,7 +49,7 @@ if(empty($_SESSION['login_user']))
                     }
                 ?>]">
             </div>
-            <div class="search">Search: <input id="recentlyAddedVideosSearch" ng-model="recentlyAddedVideosSearch"><br></div>
+            <div class="search">Search: <input class="searchBox" id="recentlyAddedVideosSearch" ng-model="recentlyAddedVideosSearch"><br></div>
             <div class="scrollbar">
                 <ul class="pure-u-1">
                     <li ng-repeat="name in recentlyAddedVideos | filter:recentlyAddedVideosSearch" class="pure-u-1 panel">
@@ -81,7 +81,7 @@ if(empty($_SESSION['login_user']))
                 var thumb = $(this).data('thumbnail');
                 var name = $(this).data('name');
                 //var thumb = $(this).data('thumbnail');
-                parent.setVideo(video.substring(0,video.length-4), name.substring(0,name.length-4), thumb);
+                parent.setVideo(video.substring(0,video.length-4), name.substring(0,name.length-4), thumb, vidId);
                 
                 $.ajax({
                     type: "POST",
@@ -111,40 +111,13 @@ if(empty($_SESSION['login_user']))
             $('.addToVideoPlaylist').click(function(){
                 var video = $(this).data('video');
                 var name = $(this).data('name');
+                var thumb = $(this).data('thumbnail');
                 var videoId = $(this).data('playid');
                 //var thumb = $(this).data('thumbnail');
-                parent.addToVideoPlaylist(video.substring(0,video.length-4), name.substring(0,name.length-4), videoId);
+                parent.addToVideoPlaylist(video.substring(0,video.length-4), name.substring(0,name.length-4), videoId, thumb);
                 parent.deleteFromPlaylist();
 
                 //parent.myPlayer.play();
-            });
-            
-            $('.playMusic').click(function(){
-                var music = $(this).data('music');
-                var musicId = $(this).data('playid');
-                var name = $(this).data('name');
-                //var thumb = $(this).data('thumbnail');
-                parent.setMusic(music.substring(0,music.length-4), name.substring(0,name.length-4), musicId);
-                
-                $.ajax({
-                    type: "POST",
-                    url: "listen.php",
-                    data: {musicID: musicId},
-                    cache: false,
-                    success: function(data){
-                    }
-                });
-            });
-            
-            $('.addToMusicPlaylist').click(function(){
-                var music = $(this).data('music');
-                var name = $(this).data('name');
-                var musicId = $(this).data('playid');
-                //var thumb = $(this).data('thumbnail');
-                parent.addToMusicPlaylist(music.substring(0,music.length-4), name.substring(0,name.length-4), musicId);
-                parent.deleteFromPlaylist();
-
-                //parent.musicPlayer.play();
             });
         }
         
@@ -173,6 +146,11 @@ if(empty($_SESSION['login_user']))
                     });
                 });
             })(jQuery);
+            
+            $( ".searchbox" ).keypress(function() {
+                mediaButtons();
+                optionsResize();
+            });
         });
     </script>
 </body>

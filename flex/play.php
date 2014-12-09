@@ -8,10 +8,6 @@
         }
 
         $video = $_GET["vid"]; 
-
-        require 'include/db.php';
-
-        
     ?>
     <head>
         <meta charset="utf-8"/>
