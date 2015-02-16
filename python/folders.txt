@@ -1,2 +1,0 @@
-/home/gru/public_html/flex/music:test
-/home/gru/public_html/flex/videos:test
