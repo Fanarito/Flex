@@ -30,6 +30,12 @@
     <div class="background-image"></div>
     <h1>Velkominn í Flex. Þetta er WIP... Mjög stutt komið á leið</h1>
     <h2><?php echo $wordArray[$random]; ?></h2>
+    
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <?php require 'includes/footer.php'; ?>
+        </div>
+    </nav>
 
     <!-- /container -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
