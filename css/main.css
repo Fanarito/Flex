@@ -1,12 +1,13 @@
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-.canvas{
-    padding-top: 0;
+.signInButton{
+    background-color: #fff;
+    border-radius: 5px;
 }
 
-.menuToggle{
-    top: 0;
-    right: 0;
+.pure-form input[type]{
+    margin-bottom: 0;
+}
+
+.loginHeading{
+    color: #fff;
+    text-shadow: 2px 2px 2px black;
 }
