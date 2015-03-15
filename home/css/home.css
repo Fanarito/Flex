@@ -1,0 +1,22 @@
+.row{
+    max-width: 100%;
+}
+
+.shit{
+    color: brown;
+}
+
+.browser {
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+#content{
+    margin-top: 45px;
+    padding: 25px;
+}
+
+.toTheLeft{
+    float: left;
+}
