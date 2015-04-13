@@ -20,3 +20,8 @@
 .toTheLeft{
     float: left;
 }
+
+.fakeNavbar {
+    width: 100%;
+    height: 45px;
+}

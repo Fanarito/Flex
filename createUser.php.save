@@ -1,0 +1,36 @@
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    require 'db.php';
+
+    $sql = "SELECT username, email FROM user WHERE username=:username OR email = :email";
+    $STH = $DBH->prepare($sql);
+    $STH->setFetchMode(PDO::FETCH_ASSOC);
+    $STH->bindParam(':username', $a = "asdf123"/*$_POST['username']*/, PDO::PARAM_STR);
+    $STH->bindParam(':email', $a = "asdf123@asdf123.com"/*$_POST['email']*/, PDO::PARAM_STR);
+    $STH->execute();
+    $existingUsers = $STH->fetch();
+
+    if($existingUsers['username'] == "asdf123"/*$_POST['usernam && $existingUsers['email'] == "asdf123@asdf123.com"/*$_POST['email']*/)
+        echo "userExists";
+    elseif(strlen($_POST['password']) > 4 && strlen($_POST['username']) > 2)
+    {
+        $path = "/home/mediaserver/www/home/users/";
+	$path .= "asdf123"/*(string)$_POST['username']*/;
+        echo $path;
+
+        if(mkdir($path)){
+            $sql = "INSERT INTO user (`username`, `email`, `password`) VALUES (:username, :email, :password)";
+            $STH = $DBH->prepare($sql);
+            $STH->setFetchMode(PDO::FETCH_ASSOC);
+            $STH->bindParam(':username', $a = "asdf123"/*$_POST['username']*/, PDO::PARAM_STR);
+            $STH->bindParam(':email', $a = "asdf123"/*$_POST['email']*/, PDO::PARAM_STR);
+            $STH->bindParam(':password', openssl_digest($a = "asdf123"/*$_POST['password']*/, 'sha512'), PDO::PARAM_STR);
+            $STH->execute();
+            echo "success";
+        }
+        else{
+            echo "failure";
+        }
+    }
+?>

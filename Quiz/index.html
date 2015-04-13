@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="icons/foundation-icons.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <script src="js/vendor/modernizr.js"></script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="large-8 column small-centered quiz">
+            <div class="large-12 column question">
+                <h1 id="question">Yes?</h1>
+            </div>
+            <div class="large-12 column answers">
+                <h2 id="message"></h2>
+                <form>
+                    <input type="radio" name="answer" id="answer1"> <label for="answer1">Answer 1</label><br>
+                    <input type="radio" name="answer" id="answer2"> <label for="answer2">Answer 2</label><br>
+                    <input type="radio" name="answer" id="answer3"> <label for="answer3">Answer 3</label><br>
+                    <input type="radio" name="answer" id="answer4"> <label for="answer4">Answer 4</label><br>
+                    <a id="next" class="button primary" onclick="quiz.AnswerQuestion(quiz.QuestionNumber)">Next</a>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+    <script src="js/game.js"></script>
+</body>
+
+</html>

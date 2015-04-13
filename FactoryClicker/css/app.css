@@ -1,0 +1,68 @@
+.outerFactoryMenu{
+    position: fixed;
+    height: 100%;
+    padding-left: 0;
+    background-color: #333;
+    padding-right: 0;
+}
+
+.innerFactoryMenu{
+    /*padding: 5px;*/
+}
+
+.whiteText{
+    color: #fff;
+}
+
+.title{
+    padding: 5px;
+    border-bottom: 1px solid white;
+}
+
+.row{
+    max-width: 100%;
+}
+
+.editFactoryName{
+    width: 100%;
+    height: 100%;
+    background-color: #008CBA;
+    border-color: #007095;
+    color: #FFF;
+    transition: background-color 300ms ease-out 0s;
+    text-align: center;
+}
+
+.editFactoryName:hover{
+    background-color: aqua;
+}
+
+.factoryName{
+    padding-left: 5px;
+    color: #fff;
+}
+
+.aLittlePadding{
+    padding-left: 10px;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.productionColumn{
+    border-right: 1px solid black;
+}
+
+.salesColumn{
+    border-left: 1px solid black;
+}
+
+.textCenter{
+    text-align: center;
+}

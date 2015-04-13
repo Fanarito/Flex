@@ -68,7 +68,7 @@ $(document).ready(function()
                 success: function(data){
                     if (data=="success")
                     {
-                        alert("Account created, but it needs to be activated.");
+                        alert("Account created, and activated");
                     }
                     else if (data=="userExists")
                     {

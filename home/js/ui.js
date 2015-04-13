@@ -3,11 +3,6 @@
 
 $(document).ready(function () {
     "use strict";
-    $('.newVideos').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-    });
     document.signOut = function () {
         $.ajax({
             type: 'GET',
@@ -22,4 +17,17 @@ $(document).ready(function () {
             }
         });
     };
+    
+    /*$('#uploadForm').ajaxForm(function() { 
+        alert("Thank you for your comment!"); 
+    }); */
+    
+    $('#addFile').click(function(){
+        $('#filesThingy').append("<input type='file' name='files[]' class='filesToUpload'>");
+    });
+    
+    $('#uploadFile').click(function(){
+        $.post('php/upload.php', $('#uploadForm').serialize());
+        $('#uploadFile').text("Uploading");
+    });
 });

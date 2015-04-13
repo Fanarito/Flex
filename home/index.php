@@ -1,4 +1,4 @@
-<?php /*error_reporting(E_ALL); ini_set( 'display_errors', 1);*/ require_once "../loginCheck.php"; require_once "php/userdata.php"; ?>
+<?php /*error_reporting(E_ALL); ini_set( 'display_errors', 1);*/ require_once "../db.php"; require_once "../loginCheck.php"; require_once "php/userdata.php"; require_once "php/userFiles.php"; ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -28,71 +28,49 @@
             </ul>
             <ul class="right">
                 <li>
-                    <a href="#" data-reveal-id="userProfile" class="button" style="top: 0;height: 45px;vertical-align: middle;line-height: 30px;">
-                        <?php echo $user[ 'username']; ?>
+                    <a href="#UserProfile" data-reveal-id="userProfile" class="button" style="top: 0;height: 45px;vertical-align: middle;line-height: 30px;">
+                        <?php echo $user['username']; ?>
                     </a>
                 </li>
             </ul>
         </nav>
     </div>
     
-    <div id="view" class="row">
-        <div class="icon-bar vertical toTheLeft">
-            <div class="item">
-            </div>
-            <a class="item">
-                <i class="fi-home"></i>
-                <label>Home</label>
-            </a>
-            <a class="item">
-                <i class="fi-video"></i>
-                <label>Videos</label>
-            </a>
-            <a class="item">
-                <i class="fi-music"></i>
-                <label>Music</label>
-            </a>
-            <a class="item">
-                <i class="fi-widget"></i>
-                <label>Settings</label>
-            </a>
-        </div>
-
-        <div id="content" class="toTheLeft">
-            <div class="row">
-                <div class="newShowcase large-4 column small-centered">
-                    <div class="newVideos">
-                        <div>your1 content</div>
-                        <div>your2 content</div>
-                        <div>your3 content</div>
-                        <div>your4 content</div>
-                        <div>your5 content</div>
-                        <div>your6 content</div>
-                        <div>your7 content</div>
-                        <div>your8 content</div>
-                        <div>your9 content</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <a href="#Upload" data-reveal-id="uploadModal" class="button primary">Upload</a>
+    
+    <div>
+    <?php
+        foreach($files as $row){
+            echo "<li>{$row['filmName']}</li>";
+            echo "<a href='" . $row['path'] . "'>" . $row['name'] . "</a><br>";
+        }
+    ?>
     </div>
 
     <div id="userProfile" class="reveal-modal tiny" data-reveal>
         <h1><?php echo $user['username']; ?></h1>
         <p>
-            <?php echo $user[ 'email']; ?>
+            <?php echo $user['email']; ?>
         </p>
         <a href="#" onclick="signOut()" id="signOut" class="secondary button">Sign Out</a>
         <a class="close-reveal-modal">&#215;</a>
     </div>
+    
+    <div id="uploadModal" class="reveal-modal tiny" data-reveal>
+        <form id="uploadForm" action="php/uploadTest.php" method="post" enctype="multipart/form-data">
+            <div id="filesThingy">
+                <input type="file" name="files[]" class="filesToUpload">
+            </div>
+            <input type="submit" value="Upload Image" class="button primary">
+            <a class="button secondary" id="addFile">Add Another File</a>
+        </form>
+    </div>
 
     <script src="../js/vendor/jquery.js"></script>
+    <!--script src="http://malsup.github.com/jquery.form.js"></script--> 
     <script src="../js/foundation.min.js"></script>
-    <script src="../slick/slick.min.js"/>
     <script>
         $(document).foundation();
-    </script>
-    <script type="text/javascript">
     </script>
     <script type="text/javascript" src="js/ui.js"></script>
 </body>
