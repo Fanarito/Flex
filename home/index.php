@@ -41,8 +41,7 @@
     <div>
     <?php
         foreach($files as $row){
-            echo "<li>{$row['filmName']}</li>";
-            echo "<a href='" . $row['path'] . "'>" . $row['name'] . "</a><br>";
+            echo "<li> <a href='" . $row['path'] . "'>" . $row['name'] . "</a> <a href='#' class='button tiny rename' data-id='" . $row['idfiles'] . "'><i class='fi-pencil'></i></a><br></li>";
         }
     ?>
     </div>

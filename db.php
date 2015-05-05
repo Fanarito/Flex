@@ -1,7 +1,7 @@
 <?php
     try{
         $user = "USERNAME";
-        $pass = "PASSWORDD";
+        $pass = "PASSWORD";
         $DBH = new PDO('mysql:host=localhost;dbname=flex', $user, $pass);
     }
     catch(PDOException $e){

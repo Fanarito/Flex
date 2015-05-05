@@ -30,4 +30,19 @@ $(document).ready(function () {
         $.post('php/upload.php', $('#uploadForm').serialize());
         $('#uploadFile').text("Uploading");
     });
+    
+    $('.rename').click(function() {
+        var fileID = $(this).data("id");
+        var newName = prompt("Yo, whats the new name?");
+        var data = 'newName='+newName+'&fileID='+fileID;
+        $.ajax({
+            type: 'POST',
+            url: "php/rename.php",
+            data: data,
+            cache: false,
+            success: function(msg){
+                alert(msg);
+            }
+        });
+    });
 });
